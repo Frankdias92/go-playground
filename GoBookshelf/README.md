@@ -1,9 +1,10 @@
+_my first code on Go!_
+```
 package main
 
 import (
 	"errors"
 	"fmt"
-	"gobooks/internal/service"
 )
 
 func sum(x, y int) (int, error) {
@@ -14,12 +15,13 @@ func sum(x, y int) (int, error) {
 }
 
 func main() {
-	book := service.Book{
-		ID:     1,
-		Title:  "New title",
-		Author: "Fredrik",
-		Genre:  "Action",
+	x, err := sum(4, 3)
+	if err != nil {
+		panic(err)
 	}
 
-	fmt.Println(book.GetFullBook())
+	fmt.Println(x)
 }
+```
+Function: Return the sum of two numbers.<br>
+Output: 7
