@@ -1,27 +1,37 @@
 ### what is Packages?
-A package is a collection of Go code files that together form a module or feature. It is identified by the name declared at the top of a .go file.
+Visibility Rules
+Public (Exported) Names:
+
+Start with a capital letter.
+They are visible and accessible outside the package in which they were defined.
 
 ```go
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, Go!")
+// public
+func Add(a, b int) int {
+    return a + b
 }
 ```
 
-**In the example above**:
+Private Names (Not exported):
 
-The package is main, which is the entry point for running Go programs.
-The code uses the fmt package, which is Go's standard library for formatted input/output.
-Types of Packages
-Standard Packages:
+Start with a lowercase letter.
+Can only be accessed within the same package.
 
-Go provides several standard packages out of the box.
-Examples:
-fmt: For formatted input and output.
-os: For interacting with the operating system.
-math: For advanced mathematical calculations.
-net/http: For creating and consuming HTTP services.
+```go
+// Private
+func subtract(a, b int) int {
+    return a - b
+}
+```
 
+
+### Best Practice Principles
+1. Encapsulation:
+- Use private names to hide implementation details that should not be exposed.
+
+2. Minimalism:
+- Expose only what is necessary for the program to function.
+This keeps your package's API clean and easy to use.
+
+3. Documentation:
+- Public names should be well documented so that other developers understand their usage.
