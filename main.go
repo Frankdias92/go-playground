@@ -5,5 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello, word!")
+	const x = 10
+	arr := [x]int{5: 400}
+	fmt.Println(arr)
 }
