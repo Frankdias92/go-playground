@@ -5,5 +5,14 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello, word!")
+	x := doDefer()
+	fmt.Println(x)
+}
+
+func doDefer() int {
+	defer fmt.Println(3)
+	defer fmt.Println(2)
+	fmt.Println(1)
+
+	return 10
 }
