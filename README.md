@@ -106,13 +106,3 @@ case intAttempt == x:
 fmt.Printf("SORRY! You missed all the attempts. The correct number was %d.\nYour attempts were: %v\n", x, attempts)
 ```
 - If all attempts are used without a correct guess (after exiting the loop), it prints a message indicating that they have used all attempts and reveals the correct number along with all their guesses.
-
-## Summary
-
-This code effectively implements a simple guessing game in Go where:
-- A random number between `0` and `100` is generated.
-- The user has up to `10` attempts to guess this number.
-- Input validation ensures that only integer guesses are accepted.
-- Feedback is provided after each guess, guiding users towards finding the correct answer.
-
-The structure of this code demonstrates good practices in Go programming, such as error handling and using slices for dynamic data storage. If you have any further questions or need clarification on specific parts, feel free to ask!
