@@ -21,28 +21,6 @@ Arrays in Go are a fundamental data structure that provides a fixed-size collect
 
 ---
 
-### Analyzing Your Code
-
-```go
-const x = 10
-arr := [x]int{5: 400}
-```
-1. **Constant for Size**:
-   - `const x = 10`: Defines the size of the array as 10 elements.
-   - The size of an array must be a constant.
-
-2. **Partial Initialization**:
-   - `{5: 400}` initializes only the 6th element (`index 5`) of the array to `400`.
-   - All other elements are set to `0`.
-
-3. **Output**:
-   - The `fmt.Println(arr)` will output:
-     ```plaintext
-     [0 0 0 0 0 400 0 0 0 0]
-     ```
-
----
-
 ### Basic Operations with Arrays
 
 Here are some fundamental operations you can perform with arrays in Go:
@@ -118,4 +96,4 @@ Here are some fundamental operations you can perform with arrays in Go:
 - **Multidimensional data**: Such as matrices or grids.
 - For **dynamic collections**, slices (a more flexible abstraction over arrays) are preferred.
 
->>>>>>> arrays ^
+#### arrays ^
