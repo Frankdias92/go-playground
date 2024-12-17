@@ -32,6 +32,7 @@ func main() {
 	// if condition
 	condition.MySuperCondition()
 	fmt.Println(condition.IsWeekend(time.Time{}))
+	condition.GetResult(6)
 
 	// loops
 	loops.SuperLoop()
