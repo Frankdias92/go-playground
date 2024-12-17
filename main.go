@@ -1,18 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"myFirstProject/Defer"
 )
 
 func main() {
-	x := doDefer()
-	fmt.Println(x)
-}
-
-func doDefer() int {
-	defer fmt.Println(3)
-	defer fmt.Println(2)
-	fmt.Println(1)
-
-	return 10
+	Defer.RunDefer()
+	Defer.LetsOpen()
 }
