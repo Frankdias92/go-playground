@@ -4,8 +4,8 @@ import (
 	"fmt"
 	condition "myFirstProject/Condition"
 	function "myFirstProject/Function"
-	guesgame "myFirstProject/GuesGame"
 	loops "myFirstProject/Loops"
+	structs "myFirstProject/Structs"
 	"myFirstProject/arrays"
 	maplesson "myFirstProject/mapLesson"
 	"time"
@@ -22,7 +22,7 @@ func main() {
 	arrays.IsInbounds(sliceWithIndex)
 
 	// My first Game in Go
-	guesgame.PlayGameGuess()
+	// guesgame.PlayGameGuess()
 
 	function.MakeFunction()
 	fmt.Println(function.Divid(2, 2))
@@ -43,4 +43,7 @@ func main() {
 	// map
 	maplesson.GetMap()
 	maplesson.ForMap()
+
+	// struct
+	structs.Struct()
 }
