@@ -2,18 +2,20 @@ package main
 
 import (
 	"fmt"
-	condition "myFirstProject/Condition"
-	function "myFirstProject/Function"
-	loops "myFirstProject/Loops"
-	structs "myFirstProject/Structs"
-	"myFirstProject/arrays"
-	maplesson "myFirstProject/mapLesson"
 	"time"
+
+	condition "github.com/frankdias92/myFirstProject/Condition"
+	function "github.com/frankdias92/myFirstProject/Function"
+	loops "github.com/frankdias92/myFirstProject/Loops"
+	quizproject "github.com/frankdias92/myFirstProject/QuizProject"
+	structs "github.com/frankdias92/myFirstProject/Structs"
+	"github.com/frankdias92/myFirstProject/arrays"
+	maplesson "github.com/frankdias92/myFirstProject/mapLesson"
 )
 
 // "math"
 
-func main() {
+func Test() {
 	fmt.Println("Hello Dev, be welcome on my mess")
 	arrays.GetArrayAndSlice()
 
@@ -46,4 +48,10 @@ func main() {
 
 	// struct
 	structs.Struct()
+
+}
+
+func main() {
+	quizproject.AskQuestion()
+
 }
