@@ -7,20 +7,21 @@ import (
 	guesgame "myFirstProject/GuesGame"
 	loops "myFirstProject/Loops"
 	"myFirstProject/arrays"
+	maplesson "myFirstProject/mapLesson"
 	"time"
 )
 
 // "math"
 
 func main() {
-	fmt.Println("hello")
+	fmt.Println("Hello Dev, be welcome on my mess")
 	arrays.GetArrayAndSlice()
 
-	fmt.Println("Print slice")
-	// sliceWitoutIndexThree := []int{0,1,2} // this will cause a panic because there is no index on element 3
+	// Arrays
 	sliceWithIndex := []int{0, 1, 2, 3}
 	arrays.IsInbounds(sliceWithIndex)
 
+	// My first Game in Go
 	guesgame.PlayGameGuess()
 
 	function.MakeFunction()
@@ -37,5 +38,8 @@ func main() {
 	loops.RangeBased()
 	loops.GoRoutinesLoop()
 	loops.Matrix()
-	// fmt.Println("i")
+
+	// map
+	maplesson.GetMap()
+	maplesson.ForMap()
 }
