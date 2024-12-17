@@ -11,4 +11,5 @@ import (
 func main() {
 	condition.MySuperCondition()
 	fmt.Println(condition.IsWeekend(time.Time{}))
+	condition.GetResult(6)
 }

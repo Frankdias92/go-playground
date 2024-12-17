@@ -37,6 +37,28 @@ func IsWeekend(x time.Time) bool {
 	}
 }
 
+func GetResult(p int) int {
+	if p >= 90 {
+		fmt.Println("You rock it")
+	} else if p >= 70 {
+		fmt.Println("Aproved")
+	} else {
+		fmt.Println("Ops! try again next year buddy")
+	}
+	return p
+}
+
+func Player() {
+	players := map[string]int{
+		"franklin": 32,
+	}
+
+	if value, ok := players["git"]; ok {
+		fmt.Println("result player:", value, ok)
+	}
+
+}
+
 // func doType(x any) {
 // 	switch t := x.(type) {
 // 	case string:
