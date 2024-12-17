@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
+	condition "myFirstProject/Condition"
 	function "myFirstProject/Function"
 	guesgame "myFirstProject/GuesGame"
 	"myFirstProject/arrays"
+	"time"
 )
+
+// "math"
 
 func main() {
 	fmt.Println("hello")
@@ -23,4 +27,7 @@ func main() {
 	fmt.Println(function.Sum(2, 2))
 	fmt.Println(function.Swap(1, 2))
 
+	// if condition
+	condition.MySuperCondition()
+	fmt.Println(condition.IsWeekend(time.Time{}))
 }
