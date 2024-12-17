@@ -52,6 +52,6 @@ func Test() {
 }
 
 func main() {
+	// Run the quiz game
 	quizproject.AskQuestion()
-
 }
