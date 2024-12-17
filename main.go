@@ -1,22 +1,18 @@
 package main
 
 import (
-<<<<<<< HEAD
 	"fmt"
 	condition "myFirstProject/Condition"
 	function "myFirstProject/Function"
 	guesgame "myFirstProject/GuesGame"
+	loops "myFirstProject/Loops"
 	"myFirstProject/arrays"
 	"time"
-=======
-	loops "myFirstProject/Loops"
->>>>>>> loops
 )
 
 // "math"
 
 func main() {
-<<<<<<< HEAD
 	fmt.Println("hello")
 	arrays.GetArrayAndSlice()
 
@@ -35,11 +31,11 @@ func main() {
 	// if condition
 	condition.MySuperCondition()
 	fmt.Println(condition.IsWeekend(time.Time{}))
-=======
+
+	// loops
 	loops.SuperLoop()
 	loops.RangeBased()
 	loops.GoRoutinesLoop()
 	loops.Matrix()
 	// fmt.Println("i")
->>>>>>> loops
 }
