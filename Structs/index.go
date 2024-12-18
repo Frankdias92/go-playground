@@ -1,10 +1,16 @@
 package structs
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"myFirstProject/Structs/embed"
+)
 
 type Client struct {
-	Name    string
-	Age     int
+	embed.Foo
+
+	Name    string `json:"name"`
+	Age     int    `json:"age"`
 	Address Address
 	Email   string
 }
@@ -17,7 +23,7 @@ type Address struct {
 }
 
 func Struct() {
-	client1 := Client{
+	client1 := &Client{
 		Name: "Franklin",
 		Age:  32,
 		Address: Address{ // Initialize the Address struct here
@@ -30,10 +36,22 @@ func Struct() {
 	client1.Address.Number = 123
 	client1.Address.Country = "Brazil"
 
-	// fmt.Println("struct client 1", client1)
-	client1.greetings()
+	client1.updateClient("client update")
+
+	client1.Bar()
+	res, err := json.Marshal(client1)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(res))
+
+	// client1.greetings()
 }
 
-func (p Client) greetings() {
-	fmt.Printf("Hello, %s from %s\n", p.Name, p.Address.Country)
+// func (p Client) greetings() {
+// 	fmt.Printf("Hello, %s from %s\n", p.Name, p.Address.Country)
+// }
+
+func (u *Client) updateClient(newName string) {
+	u.Name = newName
 }

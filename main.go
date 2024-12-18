@@ -5,7 +5,6 @@ import (
 	condition "myFirstProject/Condition"
 	function "myFirstProject/Function"
 	loops "myFirstProject/Loops"
-	structs "myFirstProject/Structs"
 	"myFirstProject/arrays"
 	maplesson "myFirstProject/mapLesson"
 	"time"
@@ -45,5 +44,4 @@ func main() {
 	maplesson.ForMap()
 
 	// struct
-	structs.Struct()
 }
