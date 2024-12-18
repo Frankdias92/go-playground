@@ -13,41 +13,42 @@ import (
 	maplesson "github.com/frankdias92/myFirstProject/mapLesson"
 )
 
-// "math"
-
 func Test() {
 	fmt.Println("Hello Dev, be welcome on my mess")
 	arrays.GetArrayAndSlice()
 
-	// Arrays
+	/* Arrays */
 	sliceWithIndex := []int{0, 1, 2, 3}
 	arrays.IsInbounds(sliceWithIndex)
 
-	// My first Game in Go
-	// guesgame.PlayGameGuess()
+	/* My first Game in Go */
+	/* guesgame.PlayGameGuess() */
 
 	function.MakeFunction()
 	fmt.Println(function.Divid(2, 2))
 	fmt.Println(function.Sum(2, 2))
 	fmt.Println(function.Swap(1, 2))
 
-	// if condition
+	/* if condition */
 	condition.MySuperCondition()
 	fmt.Println(condition.IsWeekend(time.Time{}))
 	condition.GetResult(6)
 
-	// loops
+	/* loops */
 	loops.SuperLoop()
 	loops.RangeBased()
 	loops.GoRoutinesLoop()
 	loops.Matrix()
 
-	// map
+	/* map */
 	maplesson.GetMap()
 	maplesson.ForMap()
 
-	// struct
+	/*  struct  */
 	structs.Struct()
+	structs.Interface()
+	structs.SwitchStatement()
+	structs.TypeStruct()
 
 }
 
