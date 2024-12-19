@@ -7,6 +7,7 @@ import (
 	condition "github.com/frankdias92/myFirstProject/Condition"
 	function "github.com/frankdias92/myFirstProject/Function"
 	loops "github.com/frankdias92/myFirstProject/Loops"
+	quizproject "github.com/frankdias92/myFirstProject/QuizProject"
 	structs "github.com/frankdias92/myFirstProject/Structs"
 	"github.com/frankdias92/myFirstProject/arrays"
 	competitionandresources "github.com/frankdias92/myFirstProject/competitionAndResources"
@@ -59,10 +60,14 @@ func Test() {
 	errorhandler.Error4()
 	errorhandler.Error5()
 	errorhandler.Reader()
+
+	/* Competition and Resources */
+	competitionandresources.TypeParamenters()
+	competitionandresources.GoRoutines()
+	competitionandresources.GetContextRequest()
 }
 
 func main() {
-	// Run the quiz game
-	// quizproject.AskQuestion()
-	competitionandresources.TypeParamenters()
+	/* Run the quiz game */
+	quizproject.AskQuestion()
 }
