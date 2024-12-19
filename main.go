@@ -13,6 +13,7 @@ import (
 	competitionandresources "github.com/frankdias92/myFirstProject/competitionAndResources"
 	errorhandler "github.com/frankdias92/myFirstProject/errorHandler"
 	maplesson "github.com/frankdias92/myFirstProject/mapLesson"
+	advanceconcepts "github.com/frankdias92/myFirstProject/projects/advance-concepts"
 )
 
 func Test() {
@@ -65,6 +66,9 @@ func Test() {
 	competitionandresources.TypeParamenters()
 	competitionandresources.GoRoutines()
 	competitionandresources.GetContextRequest()
+
+	/* Projects / challenges */
+	advanceconcepts.GetMeasure()
 }
 
 func main() {
