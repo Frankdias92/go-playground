@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/frankdias92/myFirstProject/Structs/embed"
+	"github.com/frankdias92/myFirstProject/first-steps/Structs/embed"
 )
 
 type Client struct {
