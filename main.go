@@ -60,6 +60,7 @@ func main() {
 	// errorhandler.Error2()
 	// errorhandler.Error3()
 	// errorhandler.Error4()
-	errorhandler.Error5()
+	// errorhandler.Error5()
+	errorhandler.Reader()
 
 }
