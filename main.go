@@ -7,6 +7,7 @@ import (
 	condition "github.com/frankdias92/myFirstProject/Condition"
 	function "github.com/frankdias92/myFirstProject/Function"
 	loops "github.com/frankdias92/myFirstProject/Loops"
+	quizproject "github.com/frankdias92/myFirstProject/QuizProject"
 	structs "github.com/frankdias92/myFirstProject/Structs"
 	"github.com/frankdias92/myFirstProject/arrays"
 	errorhandler "github.com/frankdias92/myFirstProject/errorHandler"
@@ -50,17 +51,17 @@ func Test() {
 	structs.SwitchStatement()
 	structs.TypeStruct()
 
+	/* Error handling */
+	errorhandler.HandleError()
+	errorhandler.Error1()
+	errorhandler.Error2()
+	errorhandler.Error3()
+	errorhandler.Error4()
+	errorhandler.Error5()
+	errorhandler.Reader()
 }
 
 func main() {
 	// Run the quiz game
-	// quizproject.AskQuestion()
-	// errorhandler.HandleError()
-	// errorhandler.Error1()
-	// errorhandler.Error2()
-	// errorhandler.Error3()
-	// errorhandler.Error4()
-	// errorhandler.Error5()
-	errorhandler.Reader()
-
+	quizproject.AskQuestion()
 }
