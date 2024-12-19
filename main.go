@@ -7,9 +7,9 @@ import (
 	condition "github.com/frankdias92/myFirstProject/Condition"
 	function "github.com/frankdias92/myFirstProject/Function"
 	loops "github.com/frankdias92/myFirstProject/Loops"
-	quizproject "github.com/frankdias92/myFirstProject/QuizProject"
 	structs "github.com/frankdias92/myFirstProject/Structs"
 	"github.com/frankdias92/myFirstProject/arrays"
+	competitionandresources "github.com/frankdias92/myFirstProject/competitionAndResources"
 	errorhandler "github.com/frankdias92/myFirstProject/errorHandler"
 	maplesson "github.com/frankdias92/myFirstProject/mapLesson"
 )
@@ -63,5 +63,6 @@ func Test() {
 
 func main() {
 	// Run the quiz game
-	quizproject.AskQuestion()
+	// quizproject.AskQuestion()
+	competitionandresources.TypeParamenters()
 }
