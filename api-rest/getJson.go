@@ -2,6 +2,9 @@ package apirest
 
 import (
 	"encoding/json"
+	"errors"
+	"fmt"
+	"io"
 	"net/http"
 	"strconv"
 
@@ -57,16 +60,44 @@ func handleGetUsers(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.ParseInt(idStr, 10, 64)
 
 	user, ok := db[id]
-	if ok {
-		data, err := json.Marshal(user)
-		if err != nil {
-			panic(err)
-		}
-
-		_, _ = w.Write(data)
+	if !ok {
+		// http.Error(w, "user not found", http.StatusNotFound)
+		w.WriteHeader(http.StatusNotFound)
+		_, _ = w.Write(([]byte(`{"error":"user not found"}`)))
+		return
 	}
+	data, err := json.Marshal(user)
+	if err != nil {
+		http.Error(w, "something went wrong", http.StatusInternalServerError)
+		return
+	}
+	_, _ = w.Write(data)
 }
 
 func handlePostUsers(w http.ResponseWriter, r *http.Request) {
+	r.Body = http.MaxBytesReader(w, r.Body, 10000)
+	data, err := io.ReadAll(r.Body)
+
+	if err != nil {
+		var maxErr *http.MaxBytesError
+		if errors.As(err, &maxErr) {
+			http.Error(w, "body too large", http.StatusRequestEntityTooLarge)
+			return
+		}
+
+		fmt.Println(err)
+		http.Error(w, "something went wrong", http.StatusInternalServerError)
+		return
+	}
+
+	var user User
+	if err := json.Unmarshal(data, &user); err != nil {
+		http.Error(w, "invalid body", http.StatusUnprocessableEntity)
+		return
+	}
+
+	db[user.ID] = user
+
+	w.WriteHeader(http.StatusCreated)
 
 }
