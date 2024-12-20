@@ -12,6 +12,24 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 )
 
+type Response struct {
+	Error string `json:"error,omitempty"`
+	Data  any    `json:"data,omitempty"`
+}
+
+func sendJSON(w http.ResponseWriter, resp Response, status int) {
+	data, err := json.Marshal(resp)
+	if err != nil {
+		fmt.Println("error to do marshal of json:", err)
+		sendJSON(w, Response{Error: "something went wrong"}, http.StatusInternalServerError)
+	}
+
+	w.WriteHeader(status)
+	if _, err := w.Write(data); err != nil {
+		fmt.Println("error to send response", err)
+	}
+}
+
 type User struct {
 	Username string
 	ID       int64 `json:"id,string"`
@@ -61,17 +79,10 @@ func handleGetUsers(w http.ResponseWriter, r *http.Request) {
 
 	user, ok := db[id]
 	if !ok {
-		// http.Error(w, "user not found", http.StatusNotFound)
-		w.WriteHeader(http.StatusNotFound)
-		_, _ = w.Write(([]byte(`{"error":"user not found"}`)))
+		sendJSON(w, Response{Error: "user not found"}, http.StatusNotFound)
 		return
 	}
-	data, err := json.Marshal(user)
-	if err != nil {
-		http.Error(w, "something went wrong", http.StatusInternalServerError)
-		return
-	}
-	_, _ = w.Write(data)
+	sendJSON(w, Response{Data: user}, http.StatusOK)
 }
 
 func handlePostUsers(w http.ResponseWriter, r *http.Request) {
@@ -81,18 +92,18 @@ func handlePostUsers(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		var maxErr *http.MaxBytesError
 		if errors.As(err, &maxErr) {
-			http.Error(w, "body too large", http.StatusRequestEntityTooLarge)
+			sendJSON(w, Response{Error: "body too large"}, http.StatusRequestEntityTooLarge)
 			return
 		}
 
 		fmt.Println(err)
-		http.Error(w, "something went wrong", http.StatusInternalServerError)
+		sendJSON(w, Response{Error: "something went wrong"}, http.StatusInternalServerError)
 		return
 	}
 
 	var user User
 	if err := json.Unmarshal(data, &user); err != nil {
-		http.Error(w, "invalid body", http.StatusUnprocessableEntity)
+		sendJSON(w, Response{Error: "invalid body"}, http.StatusUnprocessableEntity)
 		return
 	}
 
