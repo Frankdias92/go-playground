@@ -7,12 +7,12 @@ import (
 	condition "github.com/frankdias92/myFirstProject/first-steps/Condition"
 	function "github.com/frankdias92/myFirstProject/first-steps/Function"
 	loops "github.com/frankdias92/myFirstProject/first-steps/Loops"
-	quizproject "github.com/frankdias92/myFirstProject/first-steps/QuizProject"
 	structs "github.com/frankdias92/myFirstProject/first-steps/Structs"
 	"github.com/frankdias92/myFirstProject/first-steps/arrays"
 	competitionandresources "github.com/frankdias92/myFirstProject/first-steps/competitionAndResources"
 	errorhandler "github.com/frankdias92/myFirstProject/first-steps/errorHandler"
 	maplesson "github.com/frankdias92/myFirstProject/first-steps/mapLesson"
+	myfirtsapigo "github.com/frankdias92/myFirstProject/my-firts-api-go"
 	advanceconcepts "github.com/frankdias92/myFirstProject/projects/advance-concepts"
 )
 
@@ -73,5 +73,6 @@ func Test() {
 
 func main() {
 	/* Run the quiz game */
-	quizproject.AskQuestion()
+	// quizproject.AskQuestion()
+	myfirtsapigo.Server()
 }
