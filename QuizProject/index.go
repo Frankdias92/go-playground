@@ -120,7 +120,7 @@ func (g *GameState) Run() {
 		// Display question and options
 		fmt.Printf("\033[33m %d. %s \033[0m\n", index+1, question.Text)
 		for j, option := range question.Options {
-			fmt.Printf("[%d] %s\n", j+1, option)
+			fmt.Printf("[%d] %s\n", j+2, option)
 		}
 
 		fmt.Println("Type the number of the correct answer")
