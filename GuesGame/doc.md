@@ -1,4 +1,6 @@
-Let's break down the provided Go code step by step to understand its structure, functionality, and logic. This code implements a simple number guessing game where the user has to guess a randomly generated number between 0 and 100.
+# Guessing Game
+
+This code implements a simple number guessing game where the user has to guess a randomly generated number between 0 and 100.
 
 ## Code Breakdown
 
