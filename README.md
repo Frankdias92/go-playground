@@ -11,34 +11,32 @@ Aqui está uma proposta em formato de tabela para o **Repository Structure**, qu
 
 ## **Repository Structure**  
 
-| **Category**               | **Topic**                         | **Description**                                              | **Access Branch**         |
-|----------------------------|-----------------------------------|-------------------------------------------------------------|----------------------------|
-| **Base Concepts**          | `main`                           | Entry point of every Go application, the `main` function.    |[Go to branch](https://github.com/frankdias92/go-playground/tree/variables)
-|                            | `variables`                      | Declaration and usage of variables in Go.                    |[Go to branch](https://github.com/frankdias92/go-playground/tree/variables)
-|                            | `typesAndConsts`                 | Data types and constants.                                    |[Go to branch](https://github.com/frankdias92/go-playground/tree/typesAndConsts)
-|                            | `if-condition`                   | Conditional structures like `if` and `else`.                 |[Go to branch](https://github.com/frankdias92/go-playground/tree/if-condition)
-|                            | `loops`                          | Repetitive structures such as `for` loops.                   |[Go to branch](https://github.com/frankdias92/go-playground/tree/loops)
-| **Working with Data**      | `arrays`                         | Understanding and using arrays.                              |[Go to branch](https://github.com/frankdias92/go-playground/tree/arrays)
-|                            | `arrays-and-slices`              | Differences and use cases for arrays and slices.             |[Go to branch](https://github.com/frankdias92/go-playground/tree/arrays-and-slices)
-|                            | `map`                            | Managing key-value pairs with maps.                          |[Go to branch](https://github.com/frankdias92/go-playground/tree/map)
-| **Code Manipulation**      | `functions`                      | Function definitions and usage in Go.                        |[Go to branch](https://github.com/frankdias92/go-playground/tree/functions)
-|                            | `defer`                          | Using `defer` to schedule tasks.                             |[Go to branch](https://github.com/frankdias92/go-playground/tree/defer)
-|                            | `errohandler`                    | Error handling and best practices.                          |[Go to branch](https://github.com/frankdias92/go-playground/tree/errohandler)
-| **Advanced Structures**    | `structs`                        | Creating and using structs in Go.                            |[Go to branch](https://github.com/frankdias92/go-playground/tree/structs)
-|                            | `private-and-public-names`       | Managing visibility of identifiers in Go packages.           |[Go to branch](https://github.com/frankdias92/go-playground/tree/private-and-puclic-names)
-|                            | `type-parameters`               | Type parameters and generics.                               |[Go to branch](https://github.com/frankdias92/go-playground/tree/type-parameters)
-| **Packages and Resources** | `packages`                       | Organizing code into packages.                               |[Go to branch](https://github.com/frankdias92/go-playground/tree/packages)
-|                            | `points`                         | Working with pointers in Go.                                 |[Go to branch](https://github.com/frankdias92/go-playground/tree/points)
-| **Concurrency**            | `competition-and-resources`      | Managing concurrency and resource access.                    |[Go to branch](https://github.com/frankdias92/go-playground/tree/competition-and-resources)
-| **Projects**               | `first-project-guessing-game`    | A simple number guessing game project.                       |[Go to branch](https://github.com/frankdias92/go-playground/tree/first-project-guessing-game)
-|                            | `quiz-project`                   | Interactive quiz project to reinforce learning.              |[Go to branch](https://github.com/frankdias92/go-playground/tree/quiz-project)
-|                            | `get-a-book`                     | A small API project for a book catalog.                      |[Go to branch](https://github.com/frankdias92/go-playground/tree/get-a-book)
-|                            | `api-rest`                       | Building and structuring REST APIs.                          |[Go to branch](https://github.com/frankdias92/go-playground/tree/api-rest)
+| **Category**               | **Description**                                              | **Topic**         |
+|----------------------------|-------------------------------------------------------------|----------------------------|
+| **Base Concepts**          | Entry point of every Go application, the `main` function.    |`main`
+|                            | Declaration and usage of variables in Go.                    |[`variables`](https://github.com/frankdias92/go-playground/tree/variables)
+|                            | Data types and constants.                                    |[`typesAndConsts`](https://github.com/frankdias92/go-playground/tree/typesAndConsts)
+|                            | Conditional structures like `if` and `else`.                 |[`if-condition`](https://github.com/frankdias92/go-playground/tree/if-condition)
+|                            | Repetitive structures such as `for` loops.                   |[`loops`](https://github.com/frankdias92/go-playground/tree/loops)
+| **Working with Data**      | Understanding and using arrays.                              |[`arrays`](https://github.com/frankdias92/go-playground/tree/arrays)
+|                            | Differences and use cases for arrays and slices.             |[`arrays-and-slices`](https://github.com/frankdias92/go-playground/tree/arrays-and-slices)
+|                            | Managing key-value pairs with maps.                          |[`map`](https://github.com/frankdias92/go-playground/tree/map)
+| **Code Manipulation**      | Function definitions and usage in Go.                        |[`functions`](https://github.com/frankdias92/go-playground/tree/functions)
+|                            | Using `defer` to schedule tasks.                             |[`defer`](https://github.com/frankdias92/go-playground/tree/defer)
+|                            | Error handling and best practices.                          |[`errorhandler`](https://github.com/frankdias92/go-playground/tree/errohandler)
+| **Advanced Structures**    | Creating and using structs in Go.                            |[`structs`](https://github.com/frankdias92/go-playground/tree/structs)
+|                            | Managing visibility of identifiers in Go packages.           |[`private-and-puclic-names`](https://github.com/frankdias92/go-playground/tree/private-and-puclic-names)
+|                            | Type parameters and generics.                               |[`type-parameter`](https://github.com/frankdias92/go-playground/tree/type-parameters)
+| **Packages and Resources** | Organizing code into packages.                               |[`packages`](https://github.com/frankdias92/go-playground/tree/packages)
+|                            | Working with pointers in Go.                                 |[`points`](https://github.com/frankdias92/go-playground/tree/points)
+| **Concurrency**            | Managing concurrency and resource access.                    |[`competition-and-resources`](https://github.com/frankdias92/go-playground/tree/competition-and-resources)
+| **Projects**               | A simple number guessing game project.                       |[`first-project-guessing-game`](https://github.com/frankdias92/go-playground/tree/first-project-guessing-game)
+|                            | Interactive quiz project to reinforce learning.              |[`quiz-project`](https://github.com/frankdias92/go-playground/tree/quiz-project)
+|                            | A small API project for a book catalog.                      |[`get-a-book`](https://github.com/frankdias92/go-playground/tree/get-a-book)
+|                            | Building and structuring REST APIs.                          |[`api-rest`](https://github.com/frankdias92/go-playground/tree/api-rest)
 
  
 ---
-Testing	Creating and running tests in Go.	Go to branch
-
 
 ### **Navigation**  
 Each topic is organized in a separate branch. Simply click the branch name to navigate directly:  
