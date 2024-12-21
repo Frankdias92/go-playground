@@ -1,6 +1,4 @@
-It's great to hear that you're studying Go (Golang)! Let's dive into the `if` statements and `switch` cases in Go, using your code as a reference to clarify concepts.
-
-## If Statements
+# If Statements
 
 In Go, `if` statements are used to execute a block of code based on a condition. You can also declare variables within the `if` statement, which is a unique feature of Go.
 
