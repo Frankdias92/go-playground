@@ -1,3 +1,0 @@
-What is the keyword to declare a variable in Go?,var,const,let,define,1
-What is a goroutine in Go?,A function that runs in parallel,A type of variable,A default package,A compilation error,1
-What command is used to initialize a new Go module?,go mod init,go start,go create,go new,1
