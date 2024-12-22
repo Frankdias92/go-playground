@@ -1,11 +1,14 @@
 package apirest
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
@@ -47,6 +50,29 @@ var db = map[int64]User{
 }
 
 func GetJson() {
+	opts := &slog.HandlerOptions{
+		AddSource:   false,
+		Level:       nil,
+		ReplaceAttr: nil,
+	}
+	l := slog.New(slog.NewJSONHandler(os.Stdout, opts))
+
+	slog.SetDefault(l)
+
+	l = l.With(slog.Group("app_info", slog.String("version:", "1.0.0")))
+
+	l.LogAttrs(
+		context.Background(),
+		slog.LevelInfo,
+		"Info Message",
+		slog.String("key", "value"),
+		slog.Group("group message",
+			slog.String("groupKey", "groupValue"),
+			slog.String("groupKey2", "groupValue2"),
+		),
+		slog.Int("status", http.StatusOK),
+	)
+
 	r := chi.NewMux()
 
 	r.Use(middleware.Recoverer)
@@ -97,7 +123,6 @@ func handlePostUsers(w http.ResponseWriter, r *http.Request) {
 		}
 
 		fmt.Println(err)
-		sendJSON(w, Response{Error: "something went wrong"}, http.StatusInternalServerError)
 		return
 	}
 
