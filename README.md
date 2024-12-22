@@ -1,71 +1,128 @@
-# API Shorten URL
+# API Project Movies
 
-### **1. General Structure**
-- The `apiproject` package contains the implementation of an HTTP server using the **Chi** framework (`github.com/go-chi/chi/v5`), which is lightweight and well-suited for APIs.
-- It includes middleware functionality (like `Logger`, `Recoverer`, `RequestID`), JSON serialization, HTTP redirection, and random code generation.
+This project is a simple API in Go that allows you to search for movie information using the OMDB (Open Movie Database) API. The goal of the API is to perform movie searches based on parameters provided by the user, such as the movie title (`s` parameter) and the API key (`apikey`).
 
----
+## Features
 
-### **2. `sendJson` Function**
-This function encapsulates the sending of JSON responses. 
+- **Movie Search**: The API allows you to search for movies by providing the movie title as the `s` parameter and an OMDB API key as `apikey`.
+- **JSON Responses**: The response will be returned in JSON format, containing the movie data or an error message in case of an issue.
 
-#### Details:
-- Sets the `Content-Type` header to `application/json`.
-- Converts the response (`Respose`) into JSON using `json.Marshal`.
-- Handles errors for serialization and writing to the response.
-- Centralizes JSON response handling for cleaner and reusable code.
+## Endpoints
 
----
+### `GET /`
 
-### **3. `NewHandler` Function**
-This function sets up the HTTP router (using Chi) and defines the API routes.
+This endpoint allows you to search for a movie. The required query parameters are:
 
-#### Configured Routes:
-- **`POST /api/shorten`**: Generates a short code for a URL sent in the request body.
-- **`GET /{code}`**: Redirects the user to the URL corresponding to the provided code.
+- `apikey`: Your OMDB API key.
+- `s`: The movie title to search for.
 
-#### Middleware Usage:
-- **`middleware.Recoverer`**: Recovers from panics in the server to avoid crashes.
-- **`middleware.RequestID`**: Generates a unique ID for each request (useful for debugging).
-- **`middleware.Logger`**: Logs information for each request handled by the server.
+#### Parameters
 
----
+- **apikey** (required): The OMDB API key.
+- **s** (required): The title of the movie to search for.
 
-### **4. Custom Types**
-- **`PostBody`**: Represents the body expected in the `POST /api/shorten` request.
-  - Contains the `URL` (string) field sent by the client.
-- **`Respose`**: Represents the API responses.
-  - Includes `Error` (error message) and `Data` (response data, can be any type).
+#### Responses
 
----
+- **200 OK**: If the request is successful, the response will contain the movie data in JSON format.
+  
+- **400 Bad Request**: If the `s` (movie title) parameter is not provided.
+  
+- **401 Unauthorized**: If the `apikey` parameter is missing or invalid.
+  
+- **502 Bad Gateway**: If there is an error fetching data from the OMDB API.
 
-### **5. `genCode` Function**
-Generates a random 8-character code used as a short identifier for URLs.
+### Example Request
 
-#### Details:
-- Uses a set of characters (`abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`).
-- Seeds the random number generator with the current time (`rand.Seed(time.Now().UnixNano())`) to ensure different codes on each run.
+```bash
+curl "http://localhost:8085/?apikey=<API-KEY-HERE>&s=Blade" 
+```
 
----
+### Example Response
 
-### **6. `handlePost` and `handleGet` Functions**
-These functions implement the behavior of the API routes.
+#### Success (200 OK):
 
-#### `handlePost(db map[string]string)`
-- Decodes the JSON body of the request to get the URL provided by the client.
-- Validates the URL using `url.Parse`.
-- Generates a short code with `genCode` and stores the URL in the database (`db`).
-- Returns the short code as a response.
+```json
+{
+  "Data": {
+    "Title": "Blade Runner",
+    "Year": "1982",
+    "Genre": "Sci-Fi, Thriller",
+    "Director": "Ridley Scott",
+    "Actors": "Harrison Ford, Rutger Hauer, Sean Young",
+    "Plot": "A blade runner must pursue and try to terminate four replicants who stole a ship in space, and have returned to Earth to find their creator."
+  }
+}
+```
 
-#### `handleGet(db map[string]string)`
-- Retrieves the code from the route parameters.
-- Checks if the code exists in the database (`db`).
-- If found, redirects the client to the original URL.
-- Otherwise, returns a `404 Not Found` error.
+#### Missing Parameter (400 Bad Request):
 
-### 7. Database (map[string]string)
+```json
+{
+  "Error": "search parameter 's' is required"
+}
+```
 
-The db is a map (map[string]string) passed as a parameter to NewHandler and used to store shortened URLs in memory.
+#### Missing API Key (401 Unauthorized):
 
-Maps short codes (string) to full URLs (string).
-Limitation: Being in-memory, the URLs are lost when the server restarts. In production, this would be replaced by a persistent database.
+```json
+{
+  "Error": "apikey parameter is required"
+}
+```
+
+#### Error Fetching from OMDB (502 Bad Gateway):
+
+```json
+{
+  "Error": "something wrong with omdb"
+}
+```
+
+## How to Run the Project
+
+### Prerequisites
+
+- A valid OMDB API key. You can obtain your key from [OMDB API](https://www.omdbapi.com/apikey.aspx).
+
+### Steps to Run Locally
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/frankdias92/go-playground.git
+   git switch api-project-movies
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   go mod tidy
+   ```
+
+3. Start the server:
+
+   ```bash
+   go run main.go
+   ```
+
+4. The API will be available at `http://localhost:8085`. You can test it with `curl`:
+
+   ```bash
+   curl "http://localhost:8085/?apikey=<YOU-API-KEY>&s=Blade"
+   ```
+
+## Technical Details
+
+### Architecture
+
+- **Chi**: The `chi` package is used for HTTP routing. It provides a simple yet powerful way to build RESTful APIs.
+  
+- **OMDB API**: The OMDB API is queried to search for movies using the `apikey` and `s` (movie title) parameters.
+
+- **Middleware**:
+  - `Recoverer`: Recovers the server from panics and returns a 500 HTTP response in case of an error.
+  - `RequestID`: Generates a unique ID for each request.
+  - `Logger`: Logs request information.
+
+- **Error Handling and Responses**: The API handles errors in a structured way, returning error messages in JSON format with the appropriate status code.
+

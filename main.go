@@ -18,6 +18,8 @@ func main() {
 }
 
 func run() error {
+	// apiKey := os.Getenv("OMDB_KEY")
+
 	handler := api.NewHandler()
 
 	server := http.Server{
