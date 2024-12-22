@@ -34,7 +34,8 @@ Aqui está uma proposta em formato de tabela para o **Repository Structure**, qu
 |                            | Interactive quiz project to reinforce learning.              |[`quiz-project`](https://github.com/frankdias92/go-playground/tree/quiz-project)
 |                            | A small API project for a book catalog.                      |[`get-a-book`](https://github.com/frankdias92/go-playground/tree/get-a-book)
 |                            | Building and structuring REST APIs.                          |[`api-rest`](https://github.com/frankdias92/go-playground/tree/api-rest)
-|                            | Building an API shorten URL                                  |[`api-rest`](https://github.com/frankdias92/go-playground/tree/api-project)
+|                            | Building an API shorten URL                                  |[`api-project`](https://github.com/frankdias92/go-playground/tree/api-project)
+|                            | API in Go that allows you to search for movie informatio     |[`api-project-movies`](https://github.com/frankdias92/go-playground/tree/api-project-movies)
 
  
 ---
