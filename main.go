@@ -3,23 +3,22 @@ package main
 import (
 	"log/slog"
 	"net/http"
+	"os"
 	"time"
 
-	api "github.com/frankdias92/go-playground/api-project"
+	api "github.com/frankdias92/go-playground/api-project-movies"
 )
 
 func main() {
 	if err := run(); err != nil {
 		slog.Error("failed to execute code", "error", err)
-		return
+		os.Exit(1)
 	}
 	slog.Info("all system offline")
 }
 
 func run() error {
-	db := make(map[string]string)
-
-	handler := api.NewHandler(db)
+	handler := api.NewHandler()
 
 	server := http.Server{
 		ReadTimeout:  10 * time.Second,
