@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	sqliteintegration "myFirstProject/sqlite-integration"
 )
 
 func main() {
-	fmt.Println("hello")
+	sqliteintegration.SqliteMain()
 }
