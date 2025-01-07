@@ -1,9 +1,9 @@
 package main
 
 import (
-	sqliteintegration "myFirstProject/sqlite-integration"
+	"myFirstProject/database"
 )
 
 func main() {
-	sqliteintegration.SqliteMain()
+	database.DatabaseFoo()
 }
