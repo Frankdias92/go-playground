@@ -1,8 +1,10 @@
 package database
 
-import sqliteintegration "myFirstProject/database/sqlite-integration"
+import (
+	database "myFirstProject/database/mysql"
+)
 
 func DatabaseFoo() {
-	sqliteintegration.SqliteMain()
 
+	database.DatabaseMySQL()
 }
