@@ -16,9 +16,9 @@ services:
     container_name: postgres
     image: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: POSTGRES_DB
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "postgres_db"
     ports:
       - "5432:5432"
     volumes:
@@ -27,3 +27,4 @@ services:
 volumes:
   mysql_data:
   pg_data:
+    driver: local

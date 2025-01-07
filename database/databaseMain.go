@@ -1,10 +1,11 @@
 package database
 
 import (
-	database "myFirstProject/database/mysql"
+	"myFirstProject/database/postres"
 )
 
 func DatabaseFoo() {
 
-	database.DatabaseMySQL()
+	// mysql.DatabaseMySQL()
+	postres.DatabasePostgres()
 }
