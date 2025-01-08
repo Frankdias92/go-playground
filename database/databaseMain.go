@@ -1,11 +1,12 @@
 package database
 
 import (
-	"myFirstProject/database/postres"
+	"myFirstProject/database/redis"
 )
 
 func DatabaseFoo() {
 
 	// mysql.DatabaseMySQL()
-	postres.DatabasePostgres()
+	// postres.DatabasePostgres()
+	redis.RedisDatabase()
 }
