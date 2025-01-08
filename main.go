@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/frankdias92/myFirstProject/database"
 	condition "github.com/frankdias92/myFirstProject/first-steps/Condition"
 	function "github.com/frankdias92/myFirstProject/first-steps/Function"
 	loops "github.com/frankdias92/myFirstProject/first-steps/Loops"
+	quizproject "github.com/frankdias92/myFirstProject/first-steps/QuizProject"
 	structs "github.com/frankdias92/myFirstProject/first-steps/Structs"
 	"github.com/frankdias92/myFirstProject/first-steps/arrays"
 	competitionandresources "github.com/frankdias92/myFirstProject/first-steps/competitionAndResources"
@@ -14,6 +16,7 @@ import (
 	maplesson "github.com/frankdias92/myFirstProject/first-steps/mapLesson"
 	myfirtsapigo "github.com/frankdias92/myFirstProject/my-firts-api-go"
 	advanceconcepts "github.com/frankdias92/myFirstProject/projects/advance-concepts"
+	postgres_db "github.com/frankdias92/myFirstProject/sql"
 )
 
 func Test() {
@@ -69,13 +72,12 @@ func Test() {
 
 	/* Projects / challenges */
 	advanceconcepts.GetMeasure()
-  
+
 	/* Run the quiz game */
 	quizproject.AskQuestion()
 	myfirtsapigo.Server()
-  
 
- /* multi-database-integration */
+	/* multi-database-integration */
 	database.DatabaseFoo()
 	postgres_db.PostgresMain()
 }

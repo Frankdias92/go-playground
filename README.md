@@ -36,6 +36,7 @@ Aqui está uma proposta em formato de tabela para o **Repository Structure**, qu
 |                            | Building and structuring REST APIs.                          |[`api-rest`](https://github.com/frankdias92/go-playground/tree/api-rest)
 |                            | Building an API shorten URL                                  |[`api-project`](https://github.com/frankdias92/go-playground/tree/api-project)
 |                            | API in Go that allows you to search for movie informatio     |[`api-project-movies`](https://github.com/frankdias92/go-playground/tree/api-project-movies)
+|                            | Multi Database integration showcasing the use of MySQL, PostgreSQL, SQLite, and Redis in Go, with Docker Compose for managing database containers. |[`multi-database-integration`](https://github.com/frankdias92/go-playground/tree/multi-database-integration)
 
  
 ---
