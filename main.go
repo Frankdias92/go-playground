@@ -1,11 +1,9 @@
 package main
 
 import (
-	"myFirstProject/database"
-	postgres_db "myFirstProject/sql"
+	"github.com/frankdias92/myFirstProject/database"
 )
 
 func main() {
 	database.DatabaseFoo()
-	postgres_db.PostgresMain()
 }

@@ -155,4 +155,3 @@ postgres_db.PostgresMain()
 - [PGX](https://github.com/jackc/pgx)
 - [Redis Go Client](https://github.com/redis/go-redis)
 - [SQLC](https://sqlc.dev/)
-
