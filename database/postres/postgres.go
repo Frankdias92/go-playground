@@ -5,44 +5,56 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 func DatabasePostgres() {
 	urlExample := "postgres://postgres:postgres@localhost:5432/postgres_db"
-	db, err := pgx.Connect(context.Background(), urlExample)
+
+	// Inicializa o pool de conexões
+	db, err := pgxpool.New(context.Background(), urlExample)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
 		os.Exit(1)
 	}
-	defer db.Close(context.Background())
+	defer db.Close()
 
+	// Testa a conexão
 	if err := db.Ping(context.Background()); err != nil {
-		fmt.Printf("Error pinging database: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error pinging database: %v\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Println("Connected to the database successfully!")
+
+	// Criação da tabela
+	query := `CREATE TABLE IF NOT EXISTS foo (
+		id BIGSERIAL PRIMARY KEY,
+		bar VARCHAR(255)
+	)`
+	if _, err := db.Exec(context.Background(), query); err != nil {
+		fmt.Fprintf(os.Stderr, "Error creating table: %v\n", err)
 		return
 	}
+	fmt.Println("Table created successfully!")
 
 	// Inserção de dados
-	query := "CREATE TABLE foo (id bigserial primary key, bar varchar(255))"
-	if _, err := db.Exec(context.Background(), query); err != nil {
-		fmt.Printf("Error creating data: %v\n", err)
-		return
-	}
-
-	query = "INSERT INTO FOO (bar) VALUES ($1);"
+	query = "INSERT INTO foo (bar) VALUES ($1)"
 	if _, err := db.Exec(context.Background(), query, "testPostgres"); err != nil {
-		fmt.Printf("Error insert data: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error inserting data: %v\n", err)
 		return
 	}
+	fmt.Println("Data inserted successfully!")
 
-	query = "SELECT * FROM foo LIMIT 1"
+	// Consulta de dados
+	query = "SELECT id, bar FROM foo LIMIT 1"
 	type foobar struct {
 		ID  int64
 		Bar string
 	}
 	var res foobar
 	if err := db.QueryRow(context.Background(), query).Scan(&res.ID, &res.Bar); err != nil {
-		fmt.Printf("Error querying data: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error querying data: %v\n", err)
 		return
 	}
 
