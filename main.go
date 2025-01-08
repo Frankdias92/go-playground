@@ -1,10 +1,11 @@
 package main
 
 import (
-	postgres_db "myFirstProject/sql"
+	"myFirstProject/database/redis"
 )
 
 func main() {
 	// database.DatabaseFoo()
-	postgres_db.PostgresMain()
+	// postgres_db.PostgresMain()
+	redis.RedisDatabase()
 }
