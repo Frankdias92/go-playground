@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	api "github.com/frankdias92/go-playground/api-project"
+	api "github.com/frankdias92/go-playground/cmd/api-project"
 )
 
 func main() {
