@@ -69,10 +69,17 @@ func Test() {
 
 	/* Projects / challenges */
 	advanceconcepts.GetMeasure()
+  
+	/* Run the quiz game */
+	quizproject.AskQuestion()
+	myfirtsapigo.Server()
+  
+
+ /* multi-database-integration */
+	database.DatabaseFoo()
+	postgres_db.PostgresMain()
 }
 
 func main() {
-	/* Run the quiz game */
-	// quizproject.AskQuestion()
 	myfirtsapigo.Server()
 }
