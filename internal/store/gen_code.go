@@ -1,4 +1,4 @@
-package apiproject
+package store
 
 import (
 	"math/rand"
