@@ -4,11 +4,6 @@ Welcome to my Go studies repository! This repository is structured by learning t
 
 ---
 
-### Repository Structure
-Aqui está uma proposta em formato de tabela para o **Repository Structure**, que você pode incluir no seu README:  
-
----
-
 ## **Repository Structure**  
 
 | **Category**               | **Description**                                              | **Topic**         |
@@ -36,19 +31,10 @@ Aqui está uma proposta em formato de tabela para o **Repository Structure**, qu
 |                            | Building and structuring REST APIs.                          |[`api-rest`](https://github.com/frankdias92/go-playground/tree/api-rest)
 |                            | Building an API shorten URL                                  |[`api-project`](https://github.com/frankdias92/go-playground/tree/api-project)
 |                            | API in Go that allows you to search for movie informatio     |[`api-project-movies`](https://github.com/frankdias92/go-playground/tree/api-project-movies)
-|                            | Multi Database integration showcasing the use of MySQL, PostgreSQL, SQLite, and Redis in Go, with Docker Compose for managing database containers. |[`multi-database-integration`](https://github.com/frankdias92/go-playground/tree/multi-database-integration)
-
+|                            | Multi Database integration showcasing the use of MySQL, PostgreSQL, SQLite, and Redis in Go, with Docker Compose for managing database containers. |[`api-project-redis`](https://github.com/frankdias92/go-playground/tree/multi-database-integration)
+|                            | This project is the continuation of the api-project branch that I use memory storage. Here in this I migrate to the use of Redis as a backend system. |[`api-project-redis`](https://github.com/frankdias92/go-playground/tree/api-project-redis)
  
 ---
-
-### **Navigation**  
-Each topic is organized in a separate branch. Simply click the branch name to navigate directly:  
-
-```
-git switch <branch-name>
-```
----
-
 
 ### How to Navigate the Repository
 
@@ -65,6 +51,7 @@ git switch <branch-name>
    
    # switch a specific branch
    git switch <branch-name>
+
    ```
 
 ---
@@ -79,13 +66,3 @@ If you have improvement suggestions, find any errors, or want to add new example
 
 This repository was created as part of my continuous learning in Go. The structure is organized to help both myself and other developers studying the language. I hope you find it useful!
 
---- 
-
-
-| **Topic**            | **Description**                              | **Access Branch**                                                                                   |
-|-----------------------|----------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| **Pointers**         | Concepts, examples, and best practices.      | [Go to branch](https://github.com/your-username/repository-name/tree/pointers)                     |
-| **Structs**          | Definition and usage of structs in Go.       | [Go to branch](https://github.com/your-username/repository-name/tree/structs)                      |
-| **Interfaces**       | How interfaces work in Go.                   | [Go to branch](https://github.com/your-username/repository-name/tree/interfaces)                   |
-| **Concurrency**      | Using goroutines, channels, and concurrency. | [Go to branch](https://github.com/your-username/repository-name/tree/concurrency)                  |
-| **Testing**          | Creating and running tests in Go.            | [Go to branch](https://github.com/your-username/repository-name/tree/testing)                      |
