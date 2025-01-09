@@ -1,71 +1,75 @@
-# API Shorten URL
+# URL Shortener API
 
-### **1. General Structure**
-- The `apiproject` package contains the implementation of an HTTP server using the **Chi** framework (`github.com/go-chi/chi/v5`), which is lightweight and well-suited for APIs.
-- It includes middleware functionality (like `Logger`, `Recoverer`, `RequestID`), JSON serialization, HTTP redirection, and random code generation.
+This project is a URL Shortener API built with Go (Golang). The API allows users to shorten URLs and retrieve the original URLs using a generated code. The project follows a modular structure, making it easy to scale and maintain.
 
 ---
 
-### **2. `sendJson` Function**
-This function encapsulates the sending of JSON responses. 
+## Features
 
-#### Details:
-- Sets the `Content-Type` header to `application/json`.
-- Converts the response (`Respose`) into JSON using `json.Marshal`.
-- Handles errors for serialization and writing to the response.
-- Centralizes JSON response handling for cleaner and reusable code.
+- **Shorten URLs:** Generate a shortened version of a long URL.
+- **Retrieve Original URLs:** Fetch the original URL using a unique code.
+- **Error Handling:** Includes robust error handling for invalid or expired codes.
+- **Redis Integration:** Utilizes Redis for fast and efficient data storage.
 
 ---
 
-### **3. `NewHandler` Function**
-This function sets up the HTTP router (using Chi) and defines the API routes.
+## Project Structure
 
-#### Configured Routes:
-- **`POST /api/shorten`**: Generates a short code for a URL sent in the request body.
-- **`GET /{code}`**: Redirects the user to the URL corresponding to the provided code.
-
-#### Middleware Usage:
-- **`middleware.Recoverer`**: Recovers from panics in the server to avoid crashes.
-- **`middleware.RequestID`**: Generates a unique ID for each request (useful for debugging).
-- **`middleware.Logger`**: Logs information for each request handled by the server.
-
----
-
-### **4. Custom Types**
-- **`PostBody`**: Represents the body expected in the `POST /api/shorten` request.
-  - Contains the `URL` (string) field sent by the client.
-- **`Respose`**: Represents the API responses.
-  - Includes `Error` (error message) and `Data` (response data, can be any type).
+```
+├── internal
+│   ├── api-project
+│   │   ├── handler.go        # Contains HTTP handlers for API endpoints
+│   │   └── get_shortened_url.go  # Logic to handle retrieving original URLs
+│   ├── store
+│   │   ├── store.go          # Interface and implementation for data storage
+├── main.go                   # Entry point of the application
+├── go.mod                    # Go module definition
+├── go.sum                    # Dependency lock file
+```
 
 ---
 
-### **5. `genCode` Function**
-Generates a random 8-character code used as a short identifier for URLs.
+## Installation and Setup
 
-#### Details:
-- Uses a set of characters (`abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`).
-- Seeds the random number generator with the current time (`rand.Seed(time.Now().UnixNano())`) to ensure different codes on each run.
+1. Ensure you have Go installed on your machine.
+
+2. Clone this repository:
+   ```
+   git clone https://github.com/Frankdias92/go-playground 
+   git switch api-project-redis
+   ```
+3. Install dependencies:
+   ```bash
+   go mod tidy
+   ```
+4. Run the application:
+   ```bash
+   go run cmd/main.go
+   ```
 
 ---
 
-### **6. `handlePost` and `handleGet` Functions**
-These functions implement the behavior of the API routes.
+## API Endpoints
 
-#### `handlePost(db map[string]string)`
-- Decodes the JSON body of the request to get the URL provided by the client.
-- Validates the URL using `url.Parse`.
-- Generates a short code with `genCode` and stores the URL in the database (`db`).
-- Returns the short code as a response.
+### 1. Shorten URL
+**POST** 
+   ```bash
+   curl -X POST http://localhost:8085/api/url/shorten -d '{"url": "https://github.com"}'
+   ```
 
-#### `handleGet(db map[string]string)`
-- Retrieves the code from the route parameters.
-- Checks if the code exists in the database (`db`).
-- If found, redirects the client to the original URL.
-- Otherwise, returns a `404 Not Found` error.
+**Response:**
+   ```bash
+   {"data":{"code":"BW3jCH9W"}}
+   ```
 
-### 7. Database (map[string]string)
+### 2. Get Original URL
+**GET** 
+   ```bash
+   curl http://localhost:8085/api/url/{code}
+   ```
+**Response:**
+   ```bash
+   {"data":{"url":"https://google.com"}}
+   ```
 
-The db is a map (map[string]string) passed as a parameter to NewHandler and used to store shortened URLs in memory.
-
-Maps short codes (string) to full URLs (string).
-Limitation: Being in-memory, the URLs are lost when the server restarts. In production, this would be replaced by a persistent database.
+<img src="internal/src/Screenshot_2025-01-09-10-54-44_1920x1080.png" />

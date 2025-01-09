@@ -5,7 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	api "github.com/frankdias92/go-playground/cmd/api-project"
+	api "github.com/frankdias92/go-playground/internal/api-project"
+	"github.com/frankdias92/go-playground/internal/store"
+	"github.com/redis/go-redis/v9"
 )
 
 func main() {
@@ -17,9 +19,15 @@ func main() {
 }
 
 func run() error {
-	db := make(map[string]string)
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "",
+		DB:       0,
+	})
 
-	handler := api.NewHandler(db)
+	store := store.NewStore(rdb)
+
+	handler := api.NewHandler(store)
 
 	server := http.Server{
 		ReadTimeout:  10 * time.Second,
